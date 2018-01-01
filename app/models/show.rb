@@ -1,3 +1,5 @@
+require "pry"
+
 class Show < ActiveRecord::Base
   def self.highest_rating
     Show.maximum(:rating)
@@ -12,6 +14,7 @@ class Show < ActiveRecord::Base
   end
 
   def self.least_popular_show
+    binding.pry
     Show.find_by(self.lowest_rating)
   end
 end
